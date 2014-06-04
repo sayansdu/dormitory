@@ -100,6 +100,18 @@ public class Dal {
         }
     }
 
+    public void updateNews(Post news){
+        SqlSession session = SessionFactory.getSessionFactory().openSession();
+        try
+        {
+            session.update("NewsMapper.updateNews", news);
+            session.commit();
+        } finally{
+            session.close();
+        }
+    }
+
+
     public List<Post> getNews(){
         SqlSession session = SessionFactory.getSessionFactory().openSession();
         List<Post> news = new ArrayList<Post>();

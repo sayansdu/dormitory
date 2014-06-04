@@ -170,6 +170,14 @@
         <servlet-name>MyPage</servlet-name>
         <url-pattern>/stuff/my_page</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>StuffUpdateNews</servlet-name>
+        <servlet-class>com.example.dormitory.servlet.stuff.UpdateNews</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StuffUpdateNews</servlet-name>
+        <url-pattern>/stuff/news/update</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>UserGetNews</servlet-name>

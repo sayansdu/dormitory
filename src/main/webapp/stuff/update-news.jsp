@@ -201,14 +201,14 @@
             <%
                 if(post!=null){
             %>
-            <form action="" on="#" method="post" id="commentform">
+            <form action="/Dormitory/stuff/news/update" on="#" method="post" id="commentform" enctype="multipart/form-data">
             <div class="modal-body">
                 <div id="respon" style="padding:20px;background:#fff;">
 
                         <label for="author">Title:  * </label>
                         <input type="text" name="title" id="name" value="<%= post.getTitle() %>" size="22" tabindex="1" class="nameInput" required>
                         <label for="author">Image:  * </label>
-                        <input type="file" name="file" id="file" value="" size="22" tabindex="1"  required>
+                        <input type="file" name="file" id="file" value="" size="22" tabindex="1">
                         <label for="comment">Message: * </label>
                         <textarea name="content" id="ckeditor_full" tabindex="4" class="messageInput" required>
                             <%= post.getContent() %>
@@ -222,8 +222,9 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <input type="hidden" name="news_id" value="<%= post.getId() %>">
                 <button type="button" id="submit" data-dismiss="modal">Close</button>
-                <button type="button" id="submit">Save changes</button>
+                <button type="submit" id="submit">Save changes</button>
             </div>
             </form>
             <% } %>

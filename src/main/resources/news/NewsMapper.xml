@@ -53,4 +53,16 @@
         delete from post where author = #{id}
     </delete>
 
+    <update id="updateNews" parameterType="com.example.dormitory.entity.Post">
+        update post set
+          title = #{title},
+          content = #{content},
+          status = #{status},
+          update_time = #{update_time}
+        <if test="image != null">
+            ,image = #{image}
+        </if>
+        where id = #{id}
+    </update>
+
 </mapper>

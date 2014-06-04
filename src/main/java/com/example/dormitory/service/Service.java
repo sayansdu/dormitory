@@ -59,6 +59,10 @@ public class Service {
         dal.saveNews(news);
     }
 
+    public void updateNews(Post news){
+        dal.updateNews(news);
+    }
+
     public List<Post> getNews(){
         return dal.getNews();
     }
