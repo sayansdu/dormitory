@@ -1,0 +1,56 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NewsMapper">
+
+    <resultMap id="news" type="com.example.dormitory.entity.Post">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="create_time"/>
+        <result column="update_time" property="update_time"/>
+        <result column="image" property="image"/>
+        <association column="author" property="author" javaType="com.example.dormitory.entity.User" select="getUserById"/>
+        <collection property="comments" ofType="com.example.dormitory.entity.Comment" column="id" select="getNewsComments"/>
+    </resultMap>
+
+    <insert id="insertNews" parameterType="com.example.dormitory.entity.Post">
+      insert into post (title, content, status, create_time, update_time, author, image) values(
+      #{title, jdbcType=VARCHAR, mode=IN},
+      #{content, jdbcType=VARCHAR, mode=IN},
+      #{status, jdbcType=VARCHAR, mode=IN},
+      #{create_time, jdbcType=TIMESTAMP, mode=IN},
+      #{update_time, jdbcType=TIMESTAMP, mode=IN},
+      #{author.id, jdbcType=BIGINT, mode=IN},
+      #{image, jdbcType=BLOB, mode=IN}
+      )
+    </insert>
+
+    <select id="selectNews" resultMap="news">
+      select * from post
+    </select>
+
+    <select id="getNewsById" resultMap="news" parameterType="long">
+        select * from post where id = #{new_id}
+    </select>
+
+    <select id="getUserById" parameterType="long" resultType="com.example.dormitory.entity.User">
+        select * from users where id = #{id}
+    </select>
+
+    <select id="getNewsComments" resultType="com.example.dormitory.entity.Comment" parameterType="long">
+        select id from comment where post = #{id}
+    </select>
+
+    <select id="getNewsByAuthor" resultMap="news" parameterType="long">
+        select * from post where author = #{id}
+    </select>
+
+    <delete id="deleteNews" parameterType="long">
+        delete from post where id = #{new_id}
+    </delete>
+
+    <delete id="deleteNewsByUser" parameterType="long">
+        delete from post where author = #{id}
+    </delete>
+
+</mapper>

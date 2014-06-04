@@ -1,0 +1,37 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommentMapper">
+
+    <resultMap id="comment" type="com.example.dormitory.entity.Comment">
+        <id property="id" column="id"/>
+        <result property="text" column="text"/>
+        <association column="author" property="author" javaType="com.example.dormitory.entity.User" select="getUserById"/>
+    </resultMap>
+
+    <insert id="insertComment" parameterType="com.example.dormitory.entity.Comment">
+      insert into comment (post, author, text) values(
+      #{post.id, jdbcType=INTEGER, mode=IN},
+      #{author.id, jdbcType=BIGINT, mode=IN},
+      #{text, jdbcType=VARCHAR, mode=IN}
+      )
+    </insert>
+
+    <select id="getNewsComments" resultMap="comment" parameterType="long">
+        select * from comment where post = #{new_id}
+    </select>
+
+    <select id="getUserById" parameterType="long" resultType="com.example.dormitory.entity.User">
+        select * from users where id = #{id}
+    </select>
+
+    <delete id="deleteComment" parameterType="long">
+        delete from comment where id = #{id}
+    </delete>
+
+    <delete id="deleteCommentByPost" parameterType="long">
+        delete from comment where post = #{post_id}
+    </delete>
+
+    <delete id="deleteCommentByUser" parameterType="long">
+        delete from comment where author = #{id}
+    </delete>
+</mapper>
