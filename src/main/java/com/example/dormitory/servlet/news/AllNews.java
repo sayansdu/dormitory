@@ -21,6 +21,9 @@ public class AllNews extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Post> news = new ArrayList<Post>();
         HttpSession session = request.getSession();
+        if(session.getAttribute("admin_update_news")!=null){
+            session.removeAttribute("admin_update_news");
+        }
         if(session.getAttribute("news")!=null)
             session.removeAttribute("news");
         try {

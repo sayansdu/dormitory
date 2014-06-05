@@ -28,8 +28,14 @@ public class GetNews extends HttpServlet {
                 post.setComments(service.getNewsComments(post.getId()));
                 session.setAttribute("current_news", post);
 
-                if(current_user.getStatus().equals("admin"))
+                if(current_user.getStatus().equals("admin")){
+                    if(session.getAttribute("admin_update_news")!=null){
+                        response.sendRedirect("/Dormitory/admin/update-news.jsp");
+                        return;
+                    }
                     response.sendRedirect("/Dormitory/admin/news-details.jsp");
+                }
+
                 else
                     response.sendRedirect("/Dormitory/stuff/update-news.jsp");
                 return;

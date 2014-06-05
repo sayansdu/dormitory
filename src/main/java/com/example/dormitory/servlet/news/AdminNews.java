@@ -25,6 +25,10 @@ public class AdminNews extends HttpServlet {
             e.printStackTrace();
         }
 
+        if(session.getAttribute("admin_update_news")==null){
+            session.setAttribute("admin_update_news", true);
+        }
+
         session.setAttribute("news", news);
         response.sendRedirect("/Dormitory/admin/admin_news.jsp");
     }

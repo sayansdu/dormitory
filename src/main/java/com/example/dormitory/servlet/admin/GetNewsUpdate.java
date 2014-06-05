@@ -16,6 +16,8 @@ public class GetNewsUpdate extends HttpServlet {
         HttpSession session = request.getSession();
         User current_user = (User) session.getAttribute("current_user");
 
+
+
         if(current_user!=null && request.getParameter("news_id")!=null){
             String news_id = request.getParameter("news_id");
 
