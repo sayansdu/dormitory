@@ -138,7 +138,7 @@
                         <div class="clear20"></div>
                         <div id="respon">
                             <button type="button" id="submit" data-toggle="modal" data-target="#myModalreply">Add Comment</button> 
-                            <button type="button" id="submit" data-toggle="modal" data-target="#myModalreply">Change</button>
+                            <%--<button type="button" id="submit" data-toggle="modal" data-target="#myModalreply">Change</button>--%>
                             <a href="/Dormitory/admin/news/delete?news_id=<%= post.getId() %>" class="buttonPro">Delete</a>
                         </div>
                         <% } %>
@@ -197,10 +197,10 @@
                         <h3>Post Categories</h3>
                         <ul>
                             <li>
-                                <p><a href="#">All posts</a></p>
+                                <p><a href="/Dormitory/admin/news/all">All posts</a></p>
                             </li>
                             <li>
-                                <p><a href="#">Admin posts</a></p>
+                                <p><a href="/Dormitory/news/get/admin">My posts</a></p>
                             </li>
                             <li>
                                 <p><a href="#">Abi posts</a></p>
@@ -208,23 +208,7 @@
                             
                         </ul>
                     </div>
-                    <div id="categories">
-                        <h3>List of abis</h3>
-                        <ul>
-                            <li>
-                                <p><a href="">Sayan abi</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#">Bauka abi</a></p>
-                            </li>
-                            <li>
-                                <p><a href="#">Talgat abi</a></p>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    
-                    
+
                     <div id="popularPost">
                         <h3>Popular Post</h3>
                         <ul>
@@ -276,13 +260,7 @@
         <div class="post-footer">
             <div class="post-footer-wrap">
                 <p class="fl">Copyright 2014. All Right Reserved</p>
-                <p class="fr">
-                    <a href="index.html">Home </a>
-                    <a href="about-us.html">About Us </a>
-                    <a href="news.html">New & Events</a> 
-                    <a href="faq.html">FAQ's </a>  
-                    <a href="gallery.html">Gallery</a>
-                    <a href="contact-us.html">Contact</a></p>
+
                 </div>
             </div><!-- end post footer -->
         </div><!-- end footer -->
@@ -290,6 +268,7 @@
     </div>
     <div class="clear"></div>
     <div id="footerShadow" class="boxed boxed"><div class="shadowHolderflat"><img src="images/big-shadow.png" alt=""></div></div>
+
     <!-- Modal Reply-->
     <div class="modal fade" id="myModalreply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">

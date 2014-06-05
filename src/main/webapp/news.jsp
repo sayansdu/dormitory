@@ -117,21 +117,6 @@
                             
                         </ul>
                     </div>
-                    <div id="categories">
-                        <h3>List of abis</h3>
-                        <ul>
-                            <li>
-                                <p><a href="abi-profile.html">Sayan abi</a></p>
-                            </li>
-                            <li>
-                                <p><a href="abi-profile.html">Bauka abi</a></p>
-                            </li>
-                            <li>
-                                <p><a href="abi-profile.html">Talgat abi</a></p>
-                            </li>
-                            
-                        </ul>
-                    </div>
                     <div id="popularPost">
                         <h3>Popular Post</h3>
                         <ul>

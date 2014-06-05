@@ -114,7 +114,7 @@
                                                 <%= news.get(i).getContent() %>
                                                 <% } %>
                                             </p>--%>
-                                            <p><a href="/Dormitory/news/get?news_id=<%= news.get(i).getId() %>" class="buttonPro" href="news-details.jsp" >Read More</a></p>
+                                            <p><a href="/Dormitory/news/get?news_id=<%= news.get(i).getId() %>" class="buttonPro">Read More</a></p>
                                             <p><a href="/Dormitory/admin/news/delete?news_id=<%= news.get(i).getId() %>" class="buttonPro">Delete</a></p>
                                             </p>
 
@@ -144,28 +144,13 @@
                                 <h3>Post Categories</h3>
                                 <ul>
                                     <li>
-                                        <p><a href="#">All posts</a></p>
+                                        <p><a href="/Dormitory/admin/news/all">All posts</a></p>
                                     </li>
                                     <li>
-                                        <p><a href="#">Admin posts</a></p>
+                                        <p><a href="/Dormitory/news/get/admin">My posts</a></p>
                                     </li>
                                     <li>
                                         <p><a href="#">Abi posts</a></p>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div id="categories">
-                                <h3>List of abis</h3>
-                                <ul>
-                                    <li>
-                                        <p><a href="abi-profile.jsp">Sayan abi</a></p>
-                                    </li>
-                                    <li>
-                                        <p><a href="abi-profile.jsp">Bauka abi</a></p>
-                                    </li>
-                                    <li>
-                                        <p><a href="abi-profile.jsp">Talgat abi</a></p>
                                     </li>
 
                                 </ul>

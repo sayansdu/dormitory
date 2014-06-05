@@ -26,7 +26,6 @@ public class AllNews extends HttpServlet {
         try {
             Service service = new Service();
             news = service.getNews();
-            System.out.println("size :"+news.size());
         } catch (Exception e) {
             e.printStackTrace();
         }

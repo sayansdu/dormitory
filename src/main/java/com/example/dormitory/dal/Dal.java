@@ -111,13 +111,25 @@ public class Dal {
         }
     }
 
-
     public List<Post> getNews(){
         SqlSession session = SessionFactory.getSessionFactory().openSession();
         List<Post> news = new ArrayList<Post>();
         try
         {
             news = session.selectList("NewsMapper.selectNews");
+        } finally{
+            session.close();
+        }
+        return news;
+    }
+
+    public List<Post> adminNews(){
+        SqlSession session = SessionFactory.getSessionFactory().openSession();
+        List<Post> news = new ArrayList<Post>();
+        try
+        {
+            List<User> admin = getUsersByStatus("admin");
+            news = session.selectList("NewsMapper.getNewsByAuthor", admin.get(0).getId());
         } finally{
             session.close();
         }

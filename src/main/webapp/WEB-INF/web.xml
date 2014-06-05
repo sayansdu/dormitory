@@ -96,6 +96,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AdminNews</servlet-name>
+        <servlet-class>com.example.dormitory.servlet.news.AdminNews</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminNews</servlet-name>
+        <url-pattern>news/get/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>DeleteNews</servlet-name>
         <servlet-class>com.example.dormitory.servlet.admin.DeleteNews</servlet-class>
     </servlet>
@@ -111,6 +120,15 @@
     <servlet-mapping>
         <servlet-name>GetNews</servlet-name>
         <url-pattern>/news/get</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetNewsUpdate</servlet-name>
+        <servlet-class>com.example.dormitory.servlet.admin.GetNewsUpdate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetNewsUpdate</servlet-name>
+        <url-pattern>/news/get_update</url-pattern>
     </servlet-mapping>
 
     <servlet>

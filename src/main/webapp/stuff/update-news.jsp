@@ -59,7 +59,7 @@
                 <!-- blog post 1 -->
                 <div class="post">
                     <h3><a href="#"><%= post.getTitle() %></a></h3>
-                    <span class="posted-by-text">Posted by: <a href="#">This abi</a></span>
+                    <span class="posted-by-text">Posted by: <a href="#">You</a></span>
                     <div class="blog-dash-line"></div>
                     <% if(post.getImage()==null){ %>
                     <div class="imageBlog">
@@ -101,6 +101,7 @@
 
                             <form action="/Dormitory/admin/news/delete" method="post" id="commentform">
                                 <button type="button" id="submit" data-toggle="modal" data-target="#myModal">Change</button>
+                                <button type="button" id="submit" data-toggle="modal" data-target="#myModalreply">Add Comment</button>
                                 <input type="hidden" name="news_id" value="<%= post.getId() %>">
                                 <button type="submit" id="submit">Delete</button>
                             </form>
@@ -124,7 +125,7 @@
                         <div class="postComment">
                             <ul>
                                 <li>
-                                    <img src="images/dUser.jpg" alt="">
+                                    <img src="../images/dUser.jpg" alt="">
                                 </li>
                                 <li>
                                     <h4><%= comments.get(i).getAuthor().getName() %></h4>
@@ -145,7 +146,7 @@
                                     <button type="submit" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </form>
                             </div>
-                            <div class="reply"><a href="#"  data-toggle="modal" data-target="#myModalreply"><img src="images/iReply.png" alt=""></a></div>
+                            <div class="reply"><a href="#"  data-toggle="modal" data-target="#myModalreply"><img src="../images/iReply.png" alt=""></a></div>
                         </div>
                         <%      }
                         }
@@ -239,19 +240,22 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Reply</h4>
             </div>
+            <form action="/Dormitory/news/comment/add" on="#" method="post" id="commentform">
             <div class="modal-body">
                 <div id="respon" style="padding:20px;background:#fff;">
 
-                    <form action="" on="#" method="post" id="commentform">
-                        <label for="comment">Reply: * </label>
-                        <textarea name="comment" id="ckeditor_standard" tabindex="4" class="messageInput" required></textarea>
-                    </form>
+                    <label for="comment">Reply: * </label>
+                    <input type="hidden" name="user_id" value="<%= user.getId() %>">
+                    <input type="hidden" name="post_id" value="<%= post.getId() %>">
+                    <input type="hidden" name="comment_sender" value="stuff">
+                    <textarea name="comment" id="ckeditor_standard" tabindex="4" class="messageInput" required></textarea>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="submit" data-dismiss="modal">Close</button>
-                <button type="button" id="submit">Submit</button>
+                <button type="submit" id="submit">Submit</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

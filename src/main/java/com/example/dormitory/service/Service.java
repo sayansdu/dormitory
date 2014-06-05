@@ -67,6 +67,10 @@ public class Service {
         return dal.getNews();
     }
 
+    public List<Post> adminNews(){
+        return dal.adminNews();
+    }
+
     public List<Post> getNewsByAuthor(long id){
         return dal.getNewsByAuthor(id);
     }

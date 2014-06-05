@@ -36,9 +36,11 @@ public class AddComment extends HttpServlet {
             if(comment_sender.equals("student"))
                 response.sendRedirect("/Dormitory/user/news/get?news_id="+new_id);
             else if(comment_sender.equals("stuff"))
-                response.sendRedirect("/Dormitory/user/news/get?news_id="+new_id);
+                response.sendRedirect("/Dormitory/news/get?news_id="+new_id);
             else if(comment_sender.equals("admin"))
                 response.sendRedirect("/Dormitory/news/get?news_id="+new_id);
+            else if(comment_sender.equals("admin_update"))
+                response.sendRedirect("/Dormitory/news/get_update?news_id="+new_id);
 
             return;
         } catch (Exception e) {
