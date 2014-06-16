@@ -71,7 +71,7 @@
                                 <a href="#"><%= news.get(i).getTitle() %></a>
                             </h3>
                             <ul class="tags">
-                                <% SimpleDateFormat format = new SimpleDateFormat("MMMMM dd, yyyy");
+                                <% SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                                     String date =  format.format(news.get(i).getCreate_time());
                                 %>
                                 <%= date %>

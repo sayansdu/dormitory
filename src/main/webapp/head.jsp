@@ -8,6 +8,7 @@
 
     <!-- Style -->
     <link href="/Dormitory/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/Dormitory/css/main.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="/Dormitory/images/icon.png" type="image/x-icon">
 
     <!-- Javascript -->
@@ -42,7 +43,7 @@
                         <li><a href="#">ABOUT<span>&nbsp;</span></a>
                             <ul>
                                 <li><a href="/Dormitory/about-us.jsp">About us</a></li>
-                                <li><a href="/Dormitory/about-staff.jsp">About Staff</a></li>
+                                <li><a href="/Dormitory//stuff/all">About Staff</a></li>
                                 <li><a href="/Dormitory/about-price.jsp">Prices</a></li>
                             </ul>
                         </li>

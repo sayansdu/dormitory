@@ -44,12 +44,13 @@
     <div class="outerThreeFourths" >
       <div id="respon">
 
-        <table style="float:left;">
+        <table class="list-users">
           <tr>
             <th>#</th>
             <th>Firstname</th>
             <th>Surname</th> 
             <th>E-mail</th>
+            <th>Photo</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
@@ -61,6 +62,17 @@
                     <td><%= users.get(i).getName() %></td>
                     <td><%= users.get(i).getSurname() %></td>
                     <td><%= users.get(i).getEmail() %></td>
+                    <td>
+                        <% if(users.get(i).getPhoto()!=null){ %>
+                        <div style="margin: 5px;">
+                            <img src="../getPhoto.jsp?img_id=<%= users.get(i).getId() %>" alt="">
+                        </div>
+                        <% } else {%>
+                        <div style="margin: 5px;">
+                            <img src="/Dormitory/images/worker.png" alt="">
+                        </div>
+                        <% } %>
+                    </td>
                     <td><p><a href="update-stuff.jsp?update_user_id=<%= users.get(i).getId() %>" class="buttonPro">Update</a></p></td>
                     <td><p><a href="/Dormitory/admin/user/delete?delete_user_id=<%= users.get(i).getId() %>" class="buttonPro">Delete</a></p></td>
                 </tr>

@@ -2485,4 +2485,19 @@ hr {
 	border-top: 1px dashed #ccc;
 	margin: 10px 0 15px 0;
 	padding: 0;}
+
+
+.list-users{
+    float:left;
+}
+
+.list-users td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.list-users img{
+    width: 40px;
+    height: 40px;
+}
 	

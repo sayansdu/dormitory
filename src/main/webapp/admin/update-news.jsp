@@ -86,7 +86,7 @@
                     <div class="textBlog">
                         <ul class="tags">
                             <li class="date">
-                                <% SimpleDateFormat format = new SimpleDateFormat("MMMMM dd, yyyy");
+                                <% SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                                     String date =  format.format(post.getCreate_time());
                                 %>
                                 <%= date %>
@@ -131,7 +131,7 @@
                                 <li>
                                     <h4><%= comments.get(i).getAuthor().getName() %></h4>
                                             <span class="dateComments">
-                                                <%  format = new SimpleDateFormat("MMMMM dd, yyyy");
+                                                <%  format = new SimpleDateFormat("dd/MM/yyyy");
                                                     date =  format.format(comments.get(i).getCreate_time());
                                                 %>
                                                 <%= date %>

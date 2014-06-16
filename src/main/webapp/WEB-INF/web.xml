@@ -213,4 +213,12 @@
         <servlet-name>GetAllNews</servlet-name>
         <url-pattern>/user/news/all</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>GetAllStuff</servlet-name>
+        <servlet-class>com.example.dormitory.servlet.user.GetAllStuff</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAllStuff</servlet-name>
+        <url-pattern>/stuff/all</url-pattern>
+    </servlet-mapping>
 </web-app>

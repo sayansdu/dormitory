@@ -43,7 +43,7 @@
         <div class="outerThreeFourths" >
             <div id="respon">
 
-                <form action="/Dormitory/registration" method="post" id="commentform">
+                <form action="/Dormitory/registration" method="post" id="commentform" enctype="multipart/form-data">
                     <label for="email">Name:  *</label>
                     <input type="text" name="name"  value="" size="22" tabindex="1" class="nameInput" required>  
                     <label for="email">Surname:  *</label>
@@ -53,6 +53,9 @@
                     <% if(session.getAttribute("email-error")!=null){ %>
                         <%= session.getAttribute("email-error")%>
                     <% } %>
+                    <label for="author">Photo:  * </label>
+                    <input type="file" name="file" id="file" value="" size="22" tabindex="2"  required>
+
                     <label for="author">Info:  *</label>
                     <textarea name="comment" tabindex="4" class="messageInput" required></textarea>
                     <label for="email">Password:  * </label>

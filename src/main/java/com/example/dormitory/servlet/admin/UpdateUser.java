@@ -2,6 +2,9 @@ package com.example.dormitory.servlet.admin;
 
 import com.example.dormitory.entity.User;
 import com.example.dormitory.service.Service;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,15 +26,51 @@ import java.util.regex.Pattern;
 public class UpdateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String status = request.getParameter("status"),
-                name = request.getParameter("name"),
-                surname = request.getParameter("surname"),
-                email = request.getParameter("email"),
-                password = request.getParameter("password"),
-                vpasword = request.getParameter("vpassword"),
-                userId = request.getParameter("user_id");
+        String status = "",
+                name = "",
+                surname = "",
+                email = "",
+                password = "",
+                vpasword = "",
+                course_str = "",
+                faculty = "",
+                group = "",
+                userId = "";
 
         try {
+            List<FileItem> multiparts = new ServletFileUpload(
+                    new DiskFileItemFactory()).parseRequest(request);
+            byte[] photo = new byte[0];
+
+            for(FileItem item : multiparts){
+                if(!item.isFormField() && item.getSize()!=0){
+                    photo = item.get();
+                }
+                else {
+                    if(item.getFieldName().equals("status")){
+                        status = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("name")) {
+                        name = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("surname")) {
+                        surname = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("email")) {
+                        email = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("password")) {
+                        password = item.getString();
+                    } else if(item.getFieldName().equals("vpassword")) {
+                        vpasword = item.getString();
+                    } else if(item.getFieldName().equals("course")) {
+                        course_str = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("faculty")) {
+                        faculty = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("group")) {
+                        group = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    } else if(item.getFieldName().equals("user_id")) {
+                        userId = new String(item.getString().getBytes("iso-8859-1"), "UTF-8");
+                    }
+                }
+            }
+
             Service service = new Service();
             int counter = 0;
 
@@ -63,6 +103,8 @@ public class UpdateUser extends HttpServlet {
                 user.setEmail(email);
                 user.setPassword(password);
                 user.setStatus(status);
+                if(photo.length>0)
+                    user.setPhoto(photo);
 
                 service.updateUser(user);
 
@@ -70,10 +112,6 @@ public class UpdateUser extends HttpServlet {
                 return;
 
             } else {
-                String  course_str = request.getParameter("course"),
-                        faculty = request.getParameter("faculty"),
-                        group = request.getParameter("group");
-
                 int course = Integer.parseInt(course_str);
 
                 if(!password.equals(vpasword)){
@@ -93,6 +131,8 @@ public class UpdateUser extends HttpServlet {
                 user.setCourse(course);
                 user.setFaculty(faculty);
                 user.setGruppa(group);
+                if(photo.length>0)
+                    user.setPhoto(photo);
 
                 service.updateUser(user);
 

@@ -46,7 +46,7 @@
         <div class="outerThreeFourths" >
             <div id="respon">
 
-                <form action="/Dormitory/stuff/student/add" method="post" id="commentform">
+                <form action="/Dormitory/stuff/student/add" method="post" id="commentform" enctype="multipart/form-data">
                     <label for="email">Name:  *</label>
                     <input type="text" name="name"  value="" size="22" tabindex="1" class="nameInput" required>  
                     <label for="email">Surname:  *</label>
@@ -56,6 +56,9 @@
                     <% if(session.getAttribute("email-error")!=null){ %>
                     <%= session.getAttribute("email-error")%>
                     <% } %>
+                    <label for="author">Photo:  * </label>
+                    <input type="file" name="file" id="file" value="" size="22" tabindex="2"  required>
+
                     <label for="author">Faculty:  *</label>
                     <select  class="nameInput" name="faculty" required tabindex="4">
                         <option >Select Faculty</option>
@@ -66,7 +69,7 @@
                     </select>
                     <label for="author">Course:  *</label>
                     <select  class="nameInput" name="course" required tabindex="4">
-                        <option >Select Group</option>
+                        <option >Select Course</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

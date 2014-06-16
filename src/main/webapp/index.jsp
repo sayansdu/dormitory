@@ -44,7 +44,7 @@
                         <li><a href="#">ABOUT<span>&nbsp;</span></a>
                             <ul>
                                 <li><a href="/Dormitory/about-us.jsp">About us</a></li>
-                                <li><a href="/Dormitory/about-staff.jsp">About Staff</a></li>
+                                <li><a href="/Dormitory/stuff/all">About Staff</a></li>
                                 <li><a href="/Dormitory/about-price.jsp">Prices</a></li>
                             </ul>
                         </li>

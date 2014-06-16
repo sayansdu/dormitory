@@ -44,9 +44,11 @@
             <!-- start about-us  -->
             <div class="outerTwoThirds">
                 <p class="text"><strong>Dormitory.</strong></p>
-                <p class="text">some info about dormitory.</p><br>
+                <p class="text">A dormitory in the United States is
+                    a residence hall consisting of sleeping quarters or entire buildings primarily
+                    providing sleeping and residential quarters for large numbers of people, often boarding school, college or university students. In the UK, the word has an earlier, different but related meaning: it refers specifically to an individual room in which many people sleep, typically at a boarding school. The UK equivalent of the American word as applied to university buildings is hall of residence, often shortened to halls. At some institutes, each residence hall has its own hall council. Where they exist, such individual councils are usually part of a larger organization called, variously, Residence Hall Association, Resident Students Association, or Junior Common Room Committee which typically provides funds and oversees the individual building council. These student led organizations are often connected at a national level by the National Association of College and University Residence Halls (NACURH). Collectively, these hall councils plan social and educational events, and voice student needs to their respective administration.</p><br>
                 
-                <p class="text">some info about dormitory</p>
+                <p class="text">Many colleges and universities no longer use the word "dormitory" and staff are now using the term residence hall (analogous to the United Kingdom "hall of residence") or simply "hall" instead. Outside academia however, the word "dorm" or "dormitory" is commonly used without negative connotations. Indeed, the words are used regularly in the marketplace as well as routinely in advertising. </p>
             </div>
             
             <div class="outerOneThird last">
@@ -60,15 +62,15 @@
 
             <div class="outerOneThird">
                 <h3>Why we</h3>
-                <p><span class="dropcap2">1</span>some info some info some info some info some info some info some info some info some info some info some info </p>
+                <p><span class="dropcap2">1</span>Most residence halls are much closer to campus than comparable private housing such as apartment buildings. </p>
             </div>
             <div class="outerOneThird">
                 <h3>Rooms</h3>
-                <p><span class="dropcap2">2</span>some info some info some info some info some info some info some info some info some info some info some info </p>
+                <p><span class="dropcap2">2</span> Universities may therefore provide priority to first-year students when allocating this accommodation.</p>
             </div>
             <div class="outerOneThird last">
                 <h3>Rules</h3>
-                <p><span class="dropcap2">3</span>some info some info some info some info some info some info some info some info some info some info some info </p>
+                <p><span class="dropcap2">3</span>Halls located away from university facilities sometimes have extra amenities such as a recreation room or bar.</p>
             </div>
             
             <div class="clear20"></div>

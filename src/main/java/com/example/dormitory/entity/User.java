@@ -14,6 +14,7 @@ public class User {
     private String faculty;
     private String gruppa;
     private Date create_time;
+    private byte[] photo;
 
     public long getId() {
         return id;
@@ -93,6 +94,14 @@ public class User {
 
     public void setGruppa(String gruppa) {
         this.gruppa = gruppa;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     @Override

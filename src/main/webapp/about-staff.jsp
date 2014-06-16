@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@include file="head.jsp"%>
  <!-- start logo -->
                 <div class="logo">
@@ -40,41 +42,45 @@
             </div>
             
             <div class="clear20"></div>
-            
-            <!-- start about-us  -->
-            <div class="outerTwoThirds">
-                <p class="text"><strong>Name.</strong></p>
-                 <p class="text">Position</p>
-                <p class="text">some info about worker.</p><br>
-                
-            </div>
-            
-            <div class="outerOneThird last">
-                <span class="imageWrap">
-                    <img src="images/worker.png" alt="">
-                </span>
-                <span class="shadowHolder"><img src="images/big-shadow5.png" alt=""></span>
-            </div>
-                    
-            <div class="dash-line"></div>
 
-            <div class="outerTwoThirds">
-                <p class="text"><strong>Name.</strong></p>
-                 <p class="text">Position</p>
-                <p class="text">some info about worker.</p><br>
-                
-            </div>
-            
-            <div class="outerOneThird last">
-                <span class="imageWrap">
-                    <img src="images/worker.png" alt="">
-                </span>
-                <span class="shadowHolder"><img src="images/big-shadow5.png" alt=""></span>
-            </div>
-                    
-            <div class="dash-line"></div>
-            
-            <div class="clear20"></div>
+            <%
+                List<User> stuffs = (List<User>) session.getAttribute("stuffs");
+                if(stuffs!=null){
+                    for (int i = 0; i < stuffs.size(); i++) {
+            %>
+                <!-- start about-us  -->
+                <div class="outerTwoThirds">
+                    <p class="text"><strong>Name: <%= stuffs.get(i).getName()%></strong></p>
+                    <p class="text"><strong>Surname: <%= stuffs.get(i).getSurname() %></strong></p>
+                    <p class="text">Position: Stuff</p>
+                    <p class="text">E-mail: <%= stuffs.get(i).getEmail() %></p>
+                    <p class="text">Create time:
+                        <% SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                            String date =  format.format(stuffs.get(i).getCreate_time());
+                        %>
+                        <%= date %>
+                    </p>
+                    <br>
+
+                </div>
+
+                <div class="outerOneThird last">
+                    <% if(stuffs.get(i).getPhoto()==null){ %>
+                    <span class="imageWrap">
+                        <img src="images/worker.png" alt="">
+                    </span>
+                    <span class="shadowHolder"><img src="images/big-shadow5.png" alt=""></span>
+                    <%} else { %>
+                    <span class="imageWrap">
+                        <img src="getPhoto.jsp?img_id=<%= stuffs.get(i).getId() %>" alt="">
+                    </span>
+                    <% } %>
+                </div>
+
+                <div class="dash-line"></div>
+            <%      }
+                }
+            %>
 
         </div><!-- end main wrap-->
     </div><!-- end main-->

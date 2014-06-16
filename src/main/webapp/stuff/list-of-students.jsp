@@ -49,7 +49,7 @@
     <div class="outerThreeFourths" >
       <div id="respon">
 
-        <table style="float:left;">
+        <table class="list-users">
           <tr>
             <th>#</th>
             <th>Firstname</th>
@@ -58,8 +58,10 @@
             <th>Course</th>
             <th>Group</th>
             <th>E-mail</th>
+            <th>Photo</th>
             <th>Update</th>
             <th>Delete</th>
+
           </tr>
 
           <% List<User> users = (List<User>) session.getAttribute("students"); %>
@@ -73,8 +75,20 @@
                 <td><%= users.get(i).getCourse() %></td>
                 <td><%= users.get(i).getGruppa() %></td>
                 <td><%= users.get(i).getEmail() %></td>
+                <td>
+                    <% if(users.get(i).getPhoto()!=null){ %>
+                    <div style="margin: 5px;">
+                        <img src="../getPhoto.jsp?img_id=<%= users.get(i).getId() %>" alt="">
+                    </div>
+                    <% } else {%>
+                    <div style="margin: 5px;">
+                        <img src="/Dormitory/images/worker.png" alt="">
+                    </div>
+                    <% } %>
+                </td>
                 <td><p><a href="update.jsp?update_user_id=<%= users.get(i).getId() %>" class="buttonPro">Update</a></p></td>
                 <td><p><a href="/Dormitory/stuff/student/delete?delete_user_id=<%= users.get(i).getId() %>" class="buttonPro">Delete</a></p></td>
+
             </tr>
             <% } %>
            <% } %>

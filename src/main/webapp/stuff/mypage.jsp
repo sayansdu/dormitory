@@ -59,7 +59,7 @@
                 <p class="text">Position: Stuff</p>
                 <p class="text">E-mail: <%= user.getEmail() %></p>
                 <p class="text">Create time:
-                    <% SimpleDateFormat format = new SimpleDateFormat("MMMMM dd, yyyy");
+                    <% SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         String date =  format.format(user.getCreate_time());
                     %>
                     <%= date %>
@@ -69,10 +69,16 @@
             </div>
             
             <div class="outerOneThird last">
-                <span class="imageWrap">
-                    <img src="/Dormitory/images/worker.png" alt="">
-                </span>
-                <span class="shadowHolder"><img src="/Dormitory/images/big-shadow5.png" alt=""></span>
+                <% if(user.getPhoto()==null){ %>
+                    <span class="imageWrap">
+                        <img src="images/worker.png" alt="">
+                    </span>
+                <span class="shadowHolder"><img src="images/big-shadow5.png" alt=""></span>
+                <%} else { %>
+                    <span class="imageWrap">
+                        <img src="../getPhoto.jsp?img_id=<%= user.getId() %>" alt="">
+                    </span>
+                <% } %>
             </div>
 
 
@@ -171,7 +177,7 @@
                                             </h3>
                                             <ul class="tags">
                                                 <li class="date">
-                                                    <% format = new SimpleDateFormat("MMMMM dd, yyyy");
+                                                    <% format = new SimpleDateFormat("dd/MM/yyyy");
                                                         date =  format.format(news.get(i).getCreate_time());
                                                     %>
                                                     <%= date %>

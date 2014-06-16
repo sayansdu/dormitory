@@ -6,7 +6,7 @@
     </select>
 
     <insert id="insertUser" parameterType="com.example.dormitory.entity.User">
-      insert into users (name, surname, password, email, status, course, faculty, gruppa) values(
+      insert into users (name, surname, password, email, status, course, faculty, gruppa, photo) values(
       #{name, jdbcType=VARCHAR, mode=IN},
       #{surname, jdbcType=VARCHAR, mode=IN},
       #{password, jdbcType=VARCHAR, mode=IN},
@@ -14,7 +14,8 @@
       #{status, jdbcType=VARCHAR, mode=IN},
       #{course, jdbcType=INTEGER, mode=IN},
       #{faculty, jdbcType=VARCHAR, mode=IN},
-      #{gruppa, jdbcType=VARCHAR, mode=IN}
+      #{gruppa, jdbcType=VARCHAR, mode=IN},
+      #{photo, jdbcType=BLOB, mode=IN}
       )
     </insert>
 
@@ -27,7 +28,8 @@
         status = #{status},
         course = #{course},
         faculty = #{faculty},
-        gruppa = #{gruppa}
+        gruppa = #{gruppa},
+        photo = #{photo}
         where id = #{id}
     </update>
 
